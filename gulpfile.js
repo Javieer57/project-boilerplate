@@ -1,4 +1,3 @@
-// const gulp = require("gulp");
 const {src, dest, watch, series} = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const terser = require('gulp-terser');
@@ -13,7 +12,7 @@ function scssTask() {
 		autoprefixer({ Browserslist: ["last 3 version"]  })
 	];
 
-	return src("app/scss/styles.scss", { sourcemaps: true })
+  return src("app/scss/styles.scss", { sourcemaps: true })
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(postcss(plugins))
 		.pipe(dest("dist", { sourcemaps: '.' }));
@@ -52,7 +51,7 @@ function browsersyncReload(cb){
 function watchTask(){
   watch('*.html', { ignoreInitial: false }, browsersyncReload);
   watch('app/js/script.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
-  watch('app/scss/styles.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
+  watch('app/scss/**/*.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
 }
 
 // Public Gulp task
