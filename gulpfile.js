@@ -50,7 +50,7 @@ function browsersyncReload(cb){
 // Watch Task
 function watchTask(){
   watch('*.html', { ignoreInitial: false }, browsersyncReload);
-  watch('app/js/script.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
+  watch('app/js/**/*.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
   watch('app/scss/**/*.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
 }
 
