@@ -41,10 +41,10 @@ function scssTask() {
 		autoprefixer({ Browserslist: ["last 3 version"]  })
 	];
 
-  return src("app/scss/styles.scss", { sourcemaps: true })
+  return src("assets/sass/main.scss", { sourcemaps: true })
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(postcss(plugins))
-		.pipe(dest("dist", { sourcemaps: '.' }));
+		.pipe(dest("assets/css", { sourcemaps: '.' }));
 }
 ```
 
@@ -53,11 +53,10 @@ function scssTask() {
 Compila el archivo `script.js` de la carpeta js y lo devuelve comprimido en la carpeta dist, de igual forma agrega los sourcemaps.
 
 ```JS
-// JS Task
 function jsTask() {
-  	return src("app/js/script.js", { sourcemaps: true })
+  	return src("assets/js/main.js", { sourcemaps: true })
       .pipe(terser())
-      .pipe(dest("dist", { sourcemaps: '.' }));
+      .pipe(dest("assets/js/", { sourcemaps: '.' }));
 }
 ```
 
@@ -70,9 +69,9 @@ Esta tarea no se ejecuta por defecto con el comando `gulp`. Se mantiene por sepa
 ```JS
 // Minify img Task
 function imagesTask() {
-  return src("app/img/*")
+  return src("assets/img/*")
     .pipe(imagemin())
-    .pipe(dest("app/img"));
+    .pipe(dest("assets/img/"));
 }
 ```
 
@@ -89,15 +88,21 @@ Si solo quieres utilizar la estructura e ignorar el uso de Gulp puedes borrar to
 Tu respositorio debe quedar con la siguiente estructura:
 
 ```
-app
+assets
+    ├───css
+    │   ├───plugin
+    │   └───vendor
+    ├───fonts
     ├───img
     ├───js
-        └───script.js
-    └───scss
-        ├───components
-        ├───globals
-        ├───util
-        └───styles.scss
+    │   ├───plugin
+    │   └───vendor
+    ├───php
+    └───sass
+    │   ├───base
+    │   ├───components
+    │   ├───layout
+    │   └───page
     └───index.html
 ```
 
@@ -114,4 +119,4 @@ Si quieres aprender más sobre Gulp, esas dos fuentes pueden ser ayuda.
 -   Frontend Mentor - [@Javieer57](https://www.frontendmentor.io/profile/Javieer57)
 -   Github - [@Javieer57](https://github.com/Javieer57)
 -   Codepen - [@Javieer57](https://codepen.io/Javieer57)
--   Instagram - [@javieer_eufracio](https://www.instagram.com/javieer_eufracio/)
+-   Instagram - [@javieer_wd](https://www.instagram.com/javieer_wd/)

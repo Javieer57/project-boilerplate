@@ -41,10 +41,10 @@ function scssTask() {
 		autoprefixer({ Browserslist: ["last 3 version"]  })
 	];
 
-  return src("app/scss/styles.scss", { sourcemaps: true })
+  return src("assets/sass/main.scss", { sourcemaps: true })
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(postcss(plugins))
-		.pipe(dest("dist", { sourcemaps: '.' }));
+		.pipe(dest("assets/css", { sourcemaps: '.' }));
 }
 ```
 
@@ -55,9 +55,9 @@ It compiles the `script.js` file from the js folder and returns it compressed in
 ```JS
 // JS Task
 function jsTask() {
-  	return src("app/js/script.js", { sourcemaps: true })
+  	return src("assets/js/main.js", { sourcemaps: true })
       .pipe(terser())
-      .pipe(dest("dist", { sourcemaps: '.' }));
+      .pipe(dest("assets/js/", { sourcemaps: '.' }));
 }
 ```
 
@@ -70,9 +70,9 @@ This task is not executed by default with the `gulp` command. It is kept separat
 ```JS
 // Minify img Task
 function imagesTask() {
-  return src("app/img/*")
+  return src("assets/img/*")
     .pipe(imagemin())
-    .pipe(dest("app/img"));
+    .pipe(dest("assets/img/"));
 }
 ```
 
@@ -89,15 +89,21 @@ If you just want to use the structure and ignore the use of Gulp you can delete 
 Your repository should have the following structure:
 
 ```
-app
+assets
+    ├───css
+    │   ├───plugin
+    │   └───vendor
+    ├───fonts
     ├───img
     ├───js
-        └───script.js
-    └───scss
-        ├───components
-        ├───globals
-        ├───util
-        └───styles.scss
+    │   ├───plugin
+    │   └───vendor
+    ├───php
+    └───sass
+    │   ├───base
+    │   ├───components
+    │   ├───layout
+    │   └───page
     └───index.html
 ```
 

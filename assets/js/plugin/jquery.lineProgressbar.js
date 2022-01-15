@@ -5,10 +5,10 @@
  * Version: 1.1.2
  */
 
-; (function ($) {
+;(function($) {
     'use strict'
 
-    $.fn.LineProgressbar = function (options) {
+    $.fn.LineProgressbar = function(options) {
         options = $.extend(
             {
                 percentage: 100,
@@ -27,7 +27,7 @@
         )
 
         $.options = options
-        return this.each(function (index, el) {
+        return this.each(function(index, el) {
             // Markup
             $(el).html(
                 '<div class="progressbar"><div class="proggress"></div><div class="percentCount"></div></div>'
@@ -57,7 +57,7 @@
                         width: options.percentage + '%',
                     },
                     {
-                        step: function (x) {
+                        step: function(x) {
                             if (options.ShowProgressCount) {
                                 $(el)
                                     .find('.percentCount')
@@ -78,7 +78,7 @@
     }
 })(jQuery)
 
-$('.line-progressbar').each(function () {
+$('.line-progressbar').each(function() {
     var $this = $(this)
     function LineProgressing() {
         $this.LineProgressbar({
@@ -96,7 +96,7 @@ $('.line-progressbar').each(function () {
     }
     var loadOnce = 0
     $this.waypoint(
-        function () {
+        function() {
             loadOnce += 1
             if (loadOnce < 2) {
                 LineProgressing()
