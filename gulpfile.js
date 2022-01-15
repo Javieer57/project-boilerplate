@@ -12,24 +12,24 @@ function scssTask() {
 		autoprefixer({ Browserslist: ["last 3 version"]  })
 	];
 
-  return src("app/scss/styles.scss", { sourcemaps: true })
+  return src("assets/sass/main.scss", { sourcemaps: true })
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(postcss(plugins))
-		.pipe(dest("dist", { sourcemaps: '.' }));
+		.pipe(dest("assets/css", { sourcemaps: '.' }));
 }
 
 // Minify img Task
 function imagesTask() {
-  return src("app/img/*")
+  return src("assets/img/*")
     .pipe(imagemin())
-    .pipe(dest("app/img"));
+    .pipe(dest("assets/img/"));
 }
 
 // JS Task
 function jsTask() {
-  	return src("app/js/script.js", { sourcemaps: true })
+  	return src("assets/js/main.js", { sourcemaps: true })
       .pipe(terser())
-      .pipe(dest("dist", { sourcemaps: '.' }));
+      .pipe(dest("assets/js/", { sourcemaps: '.' }));
 }
 
 // Browsersync Tasks
@@ -50,8 +50,8 @@ function browsersyncReload(cb){
 // Watch Task
 function watchTask(){
   watch('*.html', { ignoreInitial: false }, browsersyncReload);
-  watch('app/js/**/*.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
-  watch('app/scss/**/*.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
+  watch('assets/js/**/*.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
+  watch('assets/sass/**/*.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
 }
 
 // Public Gulp task
