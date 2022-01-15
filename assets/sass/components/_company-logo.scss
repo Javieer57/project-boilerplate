@@ -1,0 +1,34 @@
+/*****************************
+10 - Component - Company Logo
+*****************************/
+.company-logo{
+    &__area .slick-list{
+       margin-left: -100px;
+    //    margin-right: -50px;
+    }
+    &__area .slick-slide{
+       margin-left: 100px;
+    //    margin-right: 50px;
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__link {
+        display: block;
+        
+    }
+
+    &__img {
+        max-width: 100%;
+        height: auto;
+        transition: all .3s ease;
+        opacity: .7;
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+
+}

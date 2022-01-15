@@ -1,0 +1,112 @@
+
+/******************************
+Template Name: Boria
+Template Description: Boria - Multipurpose Responsive eCommerce HTML Template
+Template Author: Jaber Hossain Shovon
+Template URL: https://hasthemes.com/
+
+=====================
+    Table Of Index:
+=====================
+
+01 - Base - Default
+02 - Base - Color
+03 - Base - Typhography
+04 - Base - Animation
+
+05 - Component - Button
+06 - Component - Hero Slider
+07 - Component - CMS
+08 - Component - Banner
+09 - Component - Product
+10 - Component - Company Logo
+11 - Component - Modal
+12 - Component - Breadcrumb
+13 - Component - Shop Sorting
+14 - Component - Pagination
+15 - Component - Sidebar Widget
+16 - Component - Gallery
+17 - Component - Tabstyle
+18 - Component - Comment
+19 - Component - Form
+
+20 - Page - Shop
+21 - Page - Product Single
+22 - Page - Blog
+23 - Page - Cart
+24 - Page - Checkout
+25 - Page - 404 
+26 - Page - My Account
+27 - Page - Login
+28 - Page - Contact
+29 - Page - FAQ
+30 - Page - About
+
+31 - Layout - Header
+32 - Layout - Mobile Menu
+33 - Layout - Vertical Menu
+34 - Layout - Footer
+35 - Layout - Custom Layout
+36 - Layout - Table
+37 - Layout - Offcanvas
+38 - Layout - Addcart Offcanvas
+39 - Layout - Slider Customize
+40 - Layout - Utilities
+******************************/
+
+
+
+// Import:: SCSS File 
+//:::::::::::::::::::Default CSS:::::::::::::::::::::
+@import 'base/variable';
+@import 'base/mixin';
+@import 'base/base';
+@import 'base/color';
+@import 'base/typography';
+//:::::::::::::::::::Animation CSS:::::::::::::::::::::
+@import 'base/animation';
+
+
+//:::::::::::::::::::Component CSS:::::::::::::::::::::
+@import 'components/button';
+@import 'components/hero-slider';
+@import 'components/csm';
+@import 'components/banner';
+@import 'components/product';
+@import 'components/company-logo';
+@import 'components/modal';
+@import 'components/breadcrumb';
+@import 'components/shop-sort';
+@import 'components/page-pagination';
+@import 'components/sidebar';
+@import 'components/gallery';
+@import 'components/tab-style';
+@import 'components/comment';
+@import 'components/form-box';
+
+
+//:::::::::::::::::::Page CSS:::::::::::::::::::::
+@import 'page/shop';
+@import 'page/product-single';
+@import 'page/blog';
+@import 'page/cart';
+@import 'page/checkout';
+@import 'page/404';
+@import 'page/my-account';
+@import 'page/log-in';
+@import 'page/contact';
+@import 'page/faq';
+@import 'page/about';
+
+
+//:::::::::::::::::::Layout CSS:::::::::::::::::::::
+@import 'layout/header';
+@import 'layout/mobile-menu';
+@import 'layout/vertical-menu';
+@import 'layout/footer';
+@import 'layout/custom-layout';
+@import 'layout/table';
+@import 'layout/offcanvas';
+@import 'layout/offcanvas-add-cart';
+@import 'layout/slider-customize';
+@import 'base/utilities';
