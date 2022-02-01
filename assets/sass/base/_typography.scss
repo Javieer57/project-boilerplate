@@ -1,235 +1,50 @@
 /*****************************
 03 - Base - Typhography
 *****************************/
-/*...::: Font Weight :::... */
-.font{
-    &--light{
-        font-weight: 300;
-    }
 
-    &--regular{
-        font-weight: 400;
-    }
+/*:::::::::: Font Weight :::::::::: */
+.font {
+	&--light {
+		font-weight: 300;
+	}
 
-    &--semi-bold{
-        font-weight: 600;
-    }
+	&--regular {
+		font-weight: 400;
+	}
 
-    &--bold{
-        font-weight: 700;
-    }
+	&--semi-bold {
+		font-weight: 600;
+	}
+
+	&--bold {
+		font-weight: 700;
+	}
 }
 
-/*...::: Title - Font Style :::...*/
-.title{
-    display: block;
-    line-height: 1;
+/*:::::::::: Title - Font Style ::::::::::*/
+.title {
+	display: block;
+	line-height: 1;
 
-    /*...::: Title - Font Size :::... */
-    &--xlarge{
-        font-size: 26px;
+	/*:::::::::: Title - Font Size :::::::::: */
+	&--large {
+		font-size: 26px;
+	}
 
-        @include breakpoint(small){
-            font-size: 32px
-        }
+	&--normal {
+		font-size: 18px;
+	}
 
-        @include breakpoint(medium){
-            font-size: 44px;
-        }
+	&--small {
+		font-size: 13px;
+	}
 
-        @include breakpoint(large){
-            font-size: 53px;
-        }
+	//:::::::::: Title - Font Color ::::::::::
+	&--black {
+		color: $color-black-1;
+	}
 
-        @include breakpoint(xlarge){
-            font-size: 35px;
-        }
-
-        @include breakpoint(xxlarge){
-            font-size: 60px;
-        }
-    }
-
-    &--large{
-        font-size: 26px;
-
-        @include breakpoint(small){
-            font-size: 32px
-        }
-
-        @include breakpoint(medium){
-            font-size: 44px;
-        }
-
-        @include breakpoint(large){
-            font-size: 53px;
-        }
-
-        @include breakpoint(xlarge){
-            font-size: 35px;
-        }
-
-        @include breakpoint(xxlarge){
-            font-size: 56px;
-        }
-    }
-
-    &--medium{
-        font-size: 18px;
-
-        @include breakpoint(medium){
-            font-size: 22px;
-        }
-
-        @include breakpoint(large){
-            font-size: 28px;
-        }
-
-        @include breakpoint(xxlarge){
-            font-size: 30px;
-        }        
-    }
-
-    &--normal{
-        font-size: 18px;
-
-        @include breakpoint(medium){
-            font-size: 22px;
-        }
-
-        @include breakpoint(large){
-            font-size: 28px;
-        }
-
-        @include breakpoint(xxlarge){
-            font-size: 40px;
-        }        
-    }
-    &--small{
-        font-size: 13px;
-        @include breakpoint(small){
-            font-size: 13px;
-        }
-
-        @include breakpoint(medium){
-            font-size: 17px;
-        }
-
-        @include breakpoint(large){
-            font-size: 17px;;
-        }
-
-        @include breakpoint(xlarge){
-            font-size: 11px;
-        }
-
-        @include breakpoint(xxlarge){
-            font-size: 18px;
-        }
-    }
-
-    &--tiny{
-        font-size: 16px;
-    }
-
-    &--description{
-        font-size: 18px;
-        margin-top: 20px;
-        margin-bottom: 36px;
-
-        @include breakpoint(medium){
-            margin-top: 30px;
-            margin-bottom: 46px;
-        }
-        @include breakpoint(large){
-            margin-top: 30px;
-            margin-bottom: 56px;
-        }
-        @include breakpoint(xlarge){
-            margin-top: 28px;
-            margin-bottom: 62px;
-        }
-        
-    }
-
-
-     //...::: Title - Font Color :::...
-     &--black{
-         color: $color-black-1;
-    }
-
-    &--white{
-        color: $color-white;
-    }
-
-}
-
-
-// Section Content
-.section-content{
-    &__title{
-        font-size: 22px;
-        line-height: 22px;
-        color: $color-black-1;
-        font-weight: 700;
-        text-transform: uppercase;
-        // margin-top: -10px;
-        @include breakpoint(xlarge){font-size: 26px;}
-
-    }
-
-    &__desc{
-        margin-top: 5px;
-        color: #888;
-        font-size: 14px;
-        transition: $transition3ms;
-        text-decoration: none;
-        display: inline-block;
-
-        &:hover{color: $color-red;}
-    }
-
-    &--border{
-        padding-bottom: 28px;
-        border-bottom:1px solid #ddd;
-
-        @include breakpoint(large){
-            padding-bottom: 38px;
-        } 
-    }
-}
-
-.block-quote{
-    margin-left: 80px;
-    color: $color-gray;
-    background: $color-white-1;
-    border-left: 5px solid $color-red;
-    padding: 15px 30px;
-    margin: 30px 0 30px 80px;
-    text-align: justify;
-    font-weight: 600;
-    font-style: italic;
-    line-height: 1.8;
-}
-
-.para__text{
-    margin: 20px 0 20px 0;
-    &:last-child{
-        margin: 20px 0 0 0;
-    }
-}
-
-.text{
-    &--gray{color: $color-gray}
-
-    &-area{
-        margin-bottom: 60px;
-        &:last-child{margin-bottom: 0}
-        @include breakpoint(medium){margin-bottom: 80px}
-        @include breakpoint(large){margin-bottom: 100px}
-        h5{margin-bottom: 30px}
-
-    }
-
-
+	&--white {
+		color: $color-white;
+	}
 }

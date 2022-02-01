@@ -1,11 +1,18 @@
 /*****************************
 02 - Base - Color
 *****************************/
-.gray-bg{background-color: $color-secondary}
-.pink-bg{background-color: $color-deep-pink !important;}
-.white-color{color: $color-white !important;}
-.black-color{color: $color-black-1 !important;}
-.yellow-color{color: $color-deep-yellow !important;}
-.yellow-bg{background-color: $color-deep-yellow !important;}
+.gray-bg {
+	background-color: $color-secondary;
+}
 
-.white-bg{background: $color-white !important;}
+.white-color {
+	color: $color-white;
+}
+
+.black-color {
+	color: $color-black-1;
+}
+
+.white-bg {
+	background: $color-white;
+}
