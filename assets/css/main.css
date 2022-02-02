@@ -23,71 +23,68 @@ Template URL:
 /*****************************
 01 - Base - Default
 *****************************/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 * {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	word-wrap: break-word;
-	outline: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  word-wrap: break-word;
+  outline: none;
 }
-*,
-*::after,
-*::before {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	color: #181818;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #181818;
 }
 
 dl,
 ol,
 ul {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 button {
-	border: none;
-	background: transparent;
-	outline: none !important;
+  border: none;
+  background: transparent;
+  outline: none !important;
 }
 
 img {
-	width: 100%;
-	height: auto;
-	overflow: hidden;
-	vertical-align: top;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  vertical-align: top;
 }
 
 /*****************************
 02 - Base - Color
 *****************************/
 .gray-bg {
-	background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .white-color {
-	color: #fff;
+  color: #fff;
 }
 
 .black-color {
-	color: #181818;
+  color: #181818;
 }
 
 .white-bg {
-	background: #fff;
+  background: #fff;
 }
 
 /*****************************
@@ -95,139 +92,147 @@ img {
 *****************************/
 /*:::::::::: Font Weight :::::::::: */
 .font--light {
-	font-weight: 300;
+  font-weight: 300;
 }
 .font--regular {
-	font-weight: 400;
+  font-weight: 400;
 }
 .font--semi-bold {
-	font-weight: 600;
+  font-weight: 600;
 }
 .font--bold {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 /*:::::::::: Title - Font Style ::::::::::*/
 .title {
-	display: block;
-	line-height: 1;
-	/*:::::::::: Title - Font Size :::::::::: */
+  display: block;
+  line-height: 1;
+  /*:::::::::: Title - Font Size :::::::::: */
 }
 .title--large {
-	font-size: 26px;
+  font-size: 26px;
 }
 .title--normal {
-	font-size: 18px;
+  font-size: 18px;
 }
 .title--small {
-	font-size: 13px;
+  font-size: 13px;
 }
 .title--black {
-	color: #181818;
+  color: #181818;
 }
 .title--white {
-	color: #fff;
+  color: #fff;
 }
 
 /*****************************
 04 - Base - Animation
 *****************************/
+@-webkit-keyframes example {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
 @keyframes example {
-	from {
-		background-color: red;
-	}
-	to {
-		background-color: yellow;
-	}
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
 }
 /*****************************
 05 - Component - Button
 *****************************/
 .btn {
-	display: inline-block;
-	font-size: 14px;
-	outline: none;
-	transition: all 0.3s ease;
-	border-radius: 0;
-	padding: 0;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  padding: 0;
 }
 .btn:focus {
-	box-shadow: none;
+  box-shadow: none;
 }
 .btn--box {
-	display: inline-block;
+  display: inline-block;
 }
 .btn--block {
-	display: block;
+  display: block;
 }
 .btn--radius {
-	border-radius: 30px;
+  border-radius: 30px;
 }
 
 button.btn--block {
-	width: 100%;
+  width: 100%;
 }
 
 /*****************************
 06 - Page - Contact
 *****************************/
 #map iframe {
-	width: 100%;
-	border: none;
-	height: 600px;
+  width: 100%;
+  border: none;
+  height: 600px;
 }
 @media (min-width: 576px) {
-	#map iframe {
-		height: 400px;
-	}
+  #map iframe {
+    height: 400px;
+  }
 }
 @media (min-width: 360px) {
-	#map iframe {
-		height: 340px;
-	}
+  #map iframe {
+    height: 340px;
+  }
 }
 
 /*****************************
 07 - Layout - Custom Layout
 *****************************/
 .container {
-	max-width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 @media (min-width: 576px) {
-	.container {
-		width: 100%;
-	}
+  .container {
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
-	.container {
-		max-width: 720px;
-	}
+  .container {
+    max-width: 720px;
+  }
 }
 @media (min-width: 992px) {
-	.container {
-		max-width: 960px;
-	}
+  .container {
+    max-width: 960px;
+  }
 }
 @media (min-width: 1200px) {
-	.container {
-		max-width: 1140px;
-	}
+  .container {
+    max-width: 1140px;
+  }
 }
 @media (min-width: 1566px) {
-	.container {
-		max-width: 1440px;
-	}
+  .container {
+    max-width: 1440px;
+  }
 }
 
 .container-fluid {
-	width: 100%;
-	padding-left: 0;
-	padding-right: 0;
-	overflow-x: hidden;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-x: hidden;
 }
 
 /*****************************
@@ -235,86 +240,86 @@ button.btn--block {
 *****************************/
 /*:::::::::: Margin Top :::::::::: */
 .m-t-5 {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 
 .m-t-10 {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .m-t-15 {
-	margin-top: 15px;
+  margin-top: 15px;
 }
 
 .m-t-20 {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .m-t-25 {
-	margin-top: 25px;
+  margin-top: 25px;
 }
 
 /*:::::::::: Margin bottom :::::::::: */
 .m-b-5 {
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .m-b-10 {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .m-b-15 {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .m-b-20 {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .m-b-25 {
-	margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 /*:::::::::: Margin Left :::::::::: */
 .m-l-5 {
-	margin-left: 5px;
+  margin-left: 5px;
 }
 
 .m-l-10 {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 .m-l-15 {
-	margin-left: 15px;
+  margin-left: 15px;
 }
 
 .m-l-20 {
-	margin-left: 20px;
+  margin-left: 20px;
 }
 
 .m-l-25 {
-	margin-left: 25px;
+  margin-left: 25px;
 }
 
 /*:::::::::: Margin Right :::::::::: */
 .m-r-5 {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .m-r-10 {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 .m-r-15 {
-	margin-right: 15px;
+  margin-right: 15px;
 }
 
 .m-r-20 {
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
 .m-r-25 {
-	margin-right: 25px;
+  margin-right: 25px;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -322,29 +327,27 @@ button.btn--block {
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /*:::::::::: Pargin Top :::::::::: */
 .p-t-5 {
-	padding-top: 5px;
+  padding-top: 5px;
 }
 
 /*:::::::::: Padding bottom :::::::::: */
 .p-b-5 {
-	padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 /*:::::::::: Padding Left :::::::::: */
 .p-l-5 {
-	padding-left: 5px;
+  padding-left: 5px;
 }
 
 /*:::::::::: padding Right :::::::::: */
 .p-r-5 {
-	padding-right: 5px;
+  padding-right: 5px;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::
 ==================== Border measurement===========
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .border-top-1 {
-	border-top: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
-
-/*# sourceMappingURL=main.css.map */
