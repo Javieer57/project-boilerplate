@@ -30,48 +30,49 @@ Esto ejecutará dos tareas extras (`browsersyncServe` y `watchTask`). Todo lo qu
 
 #### SASS Task
 
-Compila el archivo `styles.scss` de la carpeta scss y lo devuelve comprimido en la carpeta dist, de igual forma agrega los sourcemaps.
-
-`autoprefixer` agrega prefijos para las propiedades CSS que lo necesiten.
+Compila el archivo `main.scss` de la carpeta `assets/scss` y devuelve una versión normal y una comprimida en la carpeta `assets/css` (`autoprefixer` agrega prefijos para las propiedades CSS que lo necesiten).
 
 ```JS
 // Sass Task
 function scssTask() {
-	var plugins = [
-		autoprefixer({ Browserslist: ["last 3 version"]  })
-	];
+	var plugins = [autoprefixer({ Browserslist: ['last 3 version'] })];
 
-  return src("assets/sass/main.scss", { sourcemaps: true })
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+	return src('./assets/sass/main.scss')
+		.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(plugins))
-		.pipe(dest("assets/css", { sourcemaps: '.' }));
+		.pipe(dest('./assets/css/'))
+		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(rename({ extname: '.min.css' }))
+		.pipe(dest('./assets/css/'));
 }
 ```
 
 #### JS Task
 
-Compila el archivo `script.js` de la carpeta js y lo devuelve comprimido en la carpeta dist, de igual forma agrega los sourcemaps.
+Compila el archivo `main.js` de la carpeta `assets/js` y lo devuelve una versión comprimida en la carpeta `assets/js`.
 
 ```JS
+// JS Task
 function jsTask() {
-  	return src("assets/js/main.js", { sourcemaps: true })
-      .pipe(terser())
-      .pipe(dest("assets/js/", { sourcemaps: '.' }));
+	return src('./assets/js/main.js')
+		.pipe(terser())
+		.pipe(rename({ extname: '.min.js' }))
+		.pipe(dest('./assets/js/'));
 }
 ```
 
 #### Images Task
 
-La tarea toma todas las imagenes de la carpeta img y las devuelve minificadas en la misma carpeta.
+La tarea toma todas las imagenes de la carpeta `assets/img` y las devuelve minificadas en la misma carpeta.
 
 Esta tarea no se ejecuta por defecto con el comando `gulp`. Se mantiene por separado para que solo tengas que ejecutarla cuando lo necesites.
 
 ```JS
 // Minify img Task
 function imagesTask() {
-  return src("assets/img/*")
+  return src("./assets/img/*")
     .pipe(imagemin())
-    .pipe(dest("assets/img/"));
+    .pipe(dest("./assets/img/"));
 }
 ```
 
@@ -83,7 +84,7 @@ gulp imagesTask
 
 ### Trabajar sin Gulp
 
-Si solo quieres utilizar la estructura e ignorar el uso de Gulp puedes borrar todos los archivos fuera de la carpeta app (excepto `index.html`).
+Si solo quieres utilizar la estructura e ignorar el uso de Gulp puedes borrar todos los archivos fuera de la carpeta `assets` (excepto `index.html` y `README-template.md`).
 
 Tu respositorio debe quedar con la siguiente estructura:
 
@@ -93,7 +94,9 @@ assets
     │   ├───plugin
     │   └───vendor
     ├───fonts
+    │   └───fontAwesome5Pro
     ├───img
+    │   └───blog
     ├───js
     │   ├───plugin
     │   └───vendor
@@ -103,7 +106,8 @@ assets
     │   ├───components
     │   ├───layout
     │   └───page
-    └───index.html
+    ├───index.html
+    └───README-template.md
 ```
 
 ## Agradecimientos
@@ -116,7 +120,8 @@ Si quieres aprender más sobre Gulp, esas dos fuentes pueden ser ayuda.
 
 ## Autor
 
--   Frontend Mentor - [@Javieer57](https://www.frontendmentor.io/profile/Javieer57)
+-   Website - https://javieereufracio.com
 -   Github - [@Javieer57](https://github.com/Javieer57)
 -   Codepen - [@Javieer57](https://codepen.io/Javieer57)
--   Instagram - [@javieer_wd](https://www.instagram.com/javieer_wd/)
+-   Instagram - [@javieer_eufracio](https://www.instagram.com/javieer_wd/)
+-   Frontend Mentor - [@Javieer57](https://www.frontendmentor.io/profile/

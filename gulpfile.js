@@ -22,15 +22,15 @@ function scssTask() {
 
 // Minify img Task
 function imagesTask() {
-	return src('assets/img/*').pipe(imagemin()).pipe(dest('assets/img/'));
+	return src('./assets/img/*').pipe(imagemin()).pipe(dest('./assets/img/'));
 }
 
 // JS Task
 function jsTask() {
-	return src('assets/js/main.js')
+	return src('./assets/js/main.js')
 		.pipe(terser())
 		.pipe(rename({ extname: '.min.js' }))
-		.pipe(dest('assets/js/'));
+		.pipe(dest('./assets/js/'));
 }
 
 // Browsersync Tasks
@@ -51,7 +51,7 @@ function browsersyncReload(cb) {
 // Watch Task
 function watchTask() {
 	watch('*.html', { ignoreInitial: false }, browsersyncReload);
-	watch('assets/js/main.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
+	watch('./assets/js/main.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
 	watch('./assets/sass/**/*.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
 }
 

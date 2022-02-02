@@ -1,6 +1,6 @@
 # Project Boilerplate [GULP + SASS workflow]
 
--   [Español](./README.es.md)
+-   [Spanish](./README.es.md)
 
 This repository is a template to speed up the creation of frontend projects since it integrates into a single command the compilation of [SASS](https://sass-lang.com/), Javascript and builds a local server with [Browsersync](https://browsersync.io/)
 
@@ -30,49 +30,49 @@ This will run two extra tasks (`browsersyncServe` and` watchTask`). All you need
 
 #### SASS Task
 
-Compile the file `styles.scss` from the scss folder and return it compressed in the dist folder, also add the sourcemaps.
-
-`autoprefixer` adds prefixes for any CSS properties that need it.
+Compiles the file `main.scss` from `assets/scss` and returns a compressed and a uncompressed .css file in `assets/css` (`autoprefixer` adds prefixes for any CSS properties that need it).
 
 ```JS
 // Sass Task
 function scssTask() {
-	var plugins = [
-		autoprefixer({ Browserslist: ["last 3 version"]  })
-	];
+	var plugins = [autoprefixer({ Browserslist: ['last 3 version'] })];
 
-  return src("assets/sass/main.scss", { sourcemaps: true })
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+	return src('./assets/sass/main.scss')
+		.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(plugins))
-		.pipe(dest("assets/css", { sourcemaps: '.' }));
+		.pipe(dest('./assets/css/'))
+		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(rename({ extname: '.min.css' }))
+		.pipe(dest('./assets/css/'));
 }
 ```
 
 #### JS Task
 
-It compiles the `script.js` file from the js folder and returns it compressed in the dist folder, also adds the sourcemaps.
+It compiles the `main.js` file from `assets/js` and returns a compressed version in `assets/js`.
 
 ```JS
 // JS Task
 function jsTask() {
-  	return src("assets/js/main.js", { sourcemaps: true })
-      .pipe(terser())
-      .pipe(dest("assets/js/", { sourcemaps: '.' }));
+	return src('./assets/js/main.js')
+		.pipe(terser())
+		.pipe(rename({ extname: '.min.js' }))
+		.pipe(dest('./assets/js/'));
 }
 ```
 
 #### Images Task
 
-The task takes all the images from the img folder and returns them minified in the same folder.
+The task takes all the images from `assets/img` and returns them minified in the same folder.
 
 This task is not executed by default with the `gulp` command. It is kept separate so you only have to run it when you need it.
 
 ```JS
 // Minify img Task
 function imagesTask() {
-  return src("assets/img/*")
+  return src("./assets/img/*")
     .pipe(imagemin())
-    .pipe(dest("assets/img/"));
+    .pipe(dest("./assets/img/"));
 }
 ```
 
@@ -84,7 +84,7 @@ gulp imagesTask
 
 ### Work without Gulp
 
-If you just want to use the structure and ignore the use of Gulp you can delete all the files outside the app folder (except `index.html`).
+If you just want to use the structure and ignore the use of Gulp you can delete all the files outside the `assets` folder (except `index.html` and `README-template.md`).
 
 Your repository should have the following structure:
 
@@ -94,7 +94,9 @@ assets
     │   ├───plugin
     │   └───vendor
     ├───fonts
+    │   └───fontAwesome5Pro
     ├───img
+    │   └───blog
     ├───js
     │   ├───plugin
     │   └───vendor
@@ -104,7 +106,8 @@ assets
     │   ├───components
     │   ├───layout
     │   └───page
-    └───index.html
+    ├───index.html
+    └───README-template.md
 ```
 
 ## Acknowledgments
@@ -117,7 +120,8 @@ If you want to learn more about Gulp, those two sources can help.
 
 ## Author
 
--   Frontend Mentor - [@Javieer57](https://www.frontendmentor.io/profile/Javieer57)
+-   Website - https://javieereufracio.com
 -   Github - [@Javieer57](https://github.com/Javieer57)
 -   Codepen - [@Javieer57](https://codepen.io/Javieer57)
--   Instagram - [@javieer_wd](https://www.instagram.com/javieer_wd/)
+-   Instagram - [@javieer_eufracio](https://www.instagram.com/javieer_wd/)
+-   Frontend Mentor - [@Javieer57](https://www.frontendmentor.io/profile/Javieer57)
