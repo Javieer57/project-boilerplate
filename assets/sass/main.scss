@@ -8,19 +8,17 @@ Template URL:
     Table Of Index:
 =====================
 
-01 - Base - Variable
-02 - Base - Mixin
-03 - Base - Base
-04 - Base - Color
-05 - Base - Typography
-06 - Base - Utilities
-07 - Base - Animation
+01 - Base - Default
+02 - Base - Color
+03 - Base - Typography
+04 - Base - Animation
 
-08 - Component - Button
+05 - Component - Button
 
-09 - Page - Contact
+06 - Page - Contact
 
-10 - Layout - Custom Layout
+07 - Layout - Custom Layout
+08 - Layout - Utilities
 ******************************/
 
 // Import:: SCSS File
@@ -30,7 +28,6 @@ Template URL:
 @import 'base/base';
 @import 'base/color';
 @import 'base/typography';
-@import 'base/utilities';
 
 //:::::::::::::::::::Animation CSS:::::::::::::::::::::
 @import 'base/animation';
@@ -43,3 +40,4 @@ Template URL:
 
 //:::::::::::::::::::Layout CSS:::::::::::::::::::::
 @import 'layout/custom-layout';
+@import 'layout/utilities';

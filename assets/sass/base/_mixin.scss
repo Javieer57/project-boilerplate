@@ -1,7 +1,3 @@
-/*****************************
-02 - Base - Mixin
-*****************************/
-
 @mixin breakpoint($point) {
 	// 576 to Upper
 	@if $point == xsmall {
