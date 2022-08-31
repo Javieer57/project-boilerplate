@@ -1,0 +1,6 @@
+@use '../utils/' as *;
+
+:root {
+	--black: #{$black};
+	--white: #{$white};
+}

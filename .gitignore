@@ -1,1 +1,5 @@
+# Avoid accidental node_modules directory upload
 node_modules/
+
+# Working on README files...
+*.md

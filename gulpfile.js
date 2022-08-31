@@ -1,36 +1,40 @@
+// Gulp
 const { src, dest, watch, series } = require('gulp');
 const rename = require('gulp-rename');
-const sass = require('gulp-sass')(require('sass'));
+const imagemin = require('gulp-imagemin');
+// Browsersync
+const browsersync = require('browser-sync').create();
+// Javascript
+const babel = require('gulp-babel');
 const terser = require('gulp-terser');
+// SASS
+const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const imagemin = require('gulp-imagemin');
-const browsersync = require('browser-sync').create();
 
 // Sass Task
-function scssTask() {
-	var plugins = [autoprefixer({ Browserslist: ['last 3 version'] })];
+function sassTask() {
+	let plugins = [autoprefixer({ Browserslist: ['last 5 version'] })];
 
-	return src('./assets/sass/main.scss')
-		.pipe(sass().on('error', sass.logError))
-		.pipe(postcss(plugins))
-		.pipe(dest('./assets/css/'))
+	return src('./assets/sass/styles.scss', { sourcemaps: true })
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(postcss(plugins))
 		.pipe(rename({ extname: '.min.css' }))
-		.pipe(dest('./assets/css/'));
+		.pipe(dest('./assets/dist/css/', { sourcemaps: '.' }));
 }
 
-// Minify img Task
+// Minify imgs Task
 function imagesTask() {
-	return src('./assets/img/*').pipe(imagemin()).pipe(dest('./assets/img/'));
+	return src('./assets/images/*').pipe(imagemin()).pipe(dest('./assets/images/'));
 }
 
 // JS Task
 function jsTask() {
-	return src('./assets/js/main.js')
+	return src('./assets/js/**/*.js', { sourcemaps: true })
+		.pipe(babel({ presets: ['@babel/preset-env'] }))
 		.pipe(terser())
 		.pipe(rename({ extname: '.min.js' }))
-		.pipe(dest('./assets/js/'));
+		.pipe(dest('./assets/dist/js/', { sourcemaps: '.' }));
 }
 
 // Browsersync Tasks
@@ -50,9 +54,9 @@ function browsersyncReload(cb) {
 
 // Watch Task
 function watchTask() {
-	watch('*.html', { ignoreInitial: false }, browsersyncReload);
-	watch('./assets/js/main.js', { ignoreInitial: false }, series(jsTask, browsersyncReload));
-	watch('./assets/sass/**/*.scss', { ignoreInitial: false }, series(scssTask, browsersyncReload));
+	watch('./*.html', browsersyncReload);
+	watch('./assets/js/**/*.js', series(jsTask, browsersyncReload));
+	watch('./assets/sass/**/*.scss', series(sassTask, browsersyncReload));
 }
 
 // Public Gulp task
